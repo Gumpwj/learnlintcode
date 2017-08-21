@@ -1,0 +1,44 @@
+upgrade
+rhevm:
+engine-config -s HostPackagesUpdateTimeInHours=0.08
+engine-config -a
+service ovirt-engine restart
+
+
+/etc/ssh/sshd_config
+
+Ciphers aes128-cbc,aes192-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,3des-cbc,arcfour128,arcfour256,arcfour,blowfish-cbc,cast128-cbc
+
+MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160,hmac-sha1-96,hmac-md5-96
+
+KexAlgorithms diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group1-sha1,curve25519-sha256@libssh.org
+
+rdesktop -g 90% 10.66.65.116
+rdesktop -g 90% 10.66.148.6
+
+machine manage
+
+10.66.148.11
+admin
+123qweP
+
+配置本地ssh-key
+ssh-keygen -t rsa -C "email@address"
+
+
+/etc/vimrc
+/home/jiawu/vimrc
+
+代理： squid.corp.redhat.com:3128, squid.apac.redhat.com:3128
+
+http://blog.csdn.net/xizero00/article/details/43227019
+
+livecd-iso-to-disk --format --reset-mbr /home/samba/RHEV-H/iso/7.2/rhevh-7.2-20160913.0.el7ev.iso /dev/sd*
+
+fence-agent:
+fence_apc -a 10.73.128.12 -l apc -p 98ef9B -n 6 -o status
+fence_ipmilan -P -a 10.73.131.66 -l root -p calvin -o status
+fence_idrac -P -a 10.73.131.66 -l root -p calvin -o status
+
+dguo@redhat.com, jiawu@redhat.com, qiyuan@redhat.com, rbarry@redhat.com, sbonazzo@redhat.com, weiwang@redhat.com, huzhao@redhat.com, yaniwang@redhat.com, ycui@redhat.com, yzhao@redhat.com
+
