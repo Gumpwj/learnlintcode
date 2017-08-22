@@ -47,6 +47,25 @@ def path_2(obtacle):
                 dp[i][j] = dp[i][j-1] + dp[i-1][j]
     
     return dp[m-1][n-1]
+
+#毛毛虫
+def worm(m, n, t, p):
+    """ 
+       总共n棵树
+       M分钟后
+       到达第t颗树
+       初始位置P
+    """
+    dp = [[0 for x in range(110)] for y in range(110)]
+    dp[0][p] = 1
+
+    if t > n:
+        return " An invalid value"
+    for i in range(m):
+        for j in range(n):
+            dp[i][j] = dp[i][j] + dp[i][j+1]
+    return dp[m][t]
+
     
 #链表求和
 class ListNode(object):  
