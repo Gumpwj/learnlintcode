@@ -238,7 +238,7 @@ def subarraySum(nums):
         if sums == 0:
             result.append(i)
             result.append(i)
-            return result
+            #return result
         for j in range(i+1, size-1):
             sums += nums[j]
             if sums == 0:
