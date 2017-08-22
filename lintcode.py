@@ -167,7 +167,19 @@ class Solution(object):
         if a.val != b.val:
             return False
         return isIdentical2(a.left, b.left) and isIdentical2(a.right, b.right)
+#克隆二叉树
+def cloneTree(root):
+    """构造二叉树pNewRoot, root"""
+    if root != None:
+        pNewRoot = TreeNode(root.val)
+        if root.left != 0:
+            pNewRoot.left = cloneTree(root.left)
+        if root.right != 0:
+            pNewRoot.right = cloneTree(root.right)
+        return pNewRoot
+    return None
 
+                   
 #实现x的平方根
 def sqrt(x):
     return int(x**2)
@@ -209,9 +221,32 @@ def quitSort(A, left, right):
         A[i] = x;
         quitSort(A, left, i-1)
         quitSort(A, i+1, right)
-
     return A      
 
+#子数组之和为0, 返回数组索引
+def subarraySum(nums):
+    """ nums为list """
+    size = len(nums)
+    #sums = 0
+    if size <= 0:
+        return "wrong list"
+    
+    result = []
+    last = []
+    for i in range(size-1):
+        sums = nums[i]
+        if sums == 0:
+            result.append(i)
+            result.append(i)
+            return result
+        for j in range(i+1, size-1):
+            sums += nums[j]
+            if sums == 0:
+                result.append(i)
+                result.append(j)
+    return result
+        
+    
 if __name__ == '__main__':
     s1 = path_1(3, 3)
     print s1
@@ -234,3 +269,7 @@ if __name__ == '__main__':
 
     d = sortInteger2([3, 2, 4])
     print d
+
+    e = [-3, 1, 2, -3, 4]
+    f = subarraySum(e)
+    print f
