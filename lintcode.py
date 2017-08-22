@@ -213,7 +213,7 @@ def quitSort(A, left, right):
             if  i < j:
                 A[i] = A[j]
                 i += 1
-            while i < j and A[j] < x:
+            while i < j and A[i] < x:
                 i += 1
             if i < j:
                 A[j] = A[i]
