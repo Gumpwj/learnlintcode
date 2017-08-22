@@ -115,7 +115,7 @@ class TreeNode:
         this.val = val
         this.left, this.right = None, None
 
-class Solution:
+class Solution(object):
     """
     @param a, b, the root of binary trees.
     @return true if they are identical, or false.
@@ -168,6 +168,49 @@ class Solution:
             return False
         return isIdentical2(a.left, b.left) and isIdentical2(a.right, b.right)
 
+#实现x的平方根
+def sqrt(x):
+    return int(x**2)
+
+#用 O(1) 时间检测整数 n 是否是 2 的幂次
+def checkPowerOf2(n):
+    return n > 0 and (n & (n-1)) == 0
+
+#阶乘n！
+def fact(n):
+    if n == 1:
+        return 1
+    return n * fact(n-1)
+        
+#整数排列-快速排序
+def sortInteger2(A):
+    size = len(A)
+    if size <= 1:
+        return
+    Quitsort = quitSort(A, 0, size-1)
+    return Quitsort
+
+def quitSort(A, left, right):
+    if(left < right):
+        i = left
+        j = right
+        x = A[i]
+        while i < j:
+            while i < j and A[j] >= x:
+                j -= 1
+            if  i < j:
+                A[i] = A[j]
+                i += 1
+            while i < j and A[j] < x:
+                i += 1
+            if i < j:
+                A[j] = A[i]
+                j -= 1
+        A[i] = x;
+        quitSort(A, left, i-1)
+        quitSort(A, i+1, right)
+
+    return A      
 
 if __name__ == '__main__':
     s1 = path_1(3, 3)
@@ -180,3 +223,14 @@ if __name__ == '__main__':
     s2 = path_2(obstacle)
     print s2
 
+    a = sqrt(2)
+    print a
+
+    b = fact(7)
+    print b
+
+    c = checkPowerOf2(5)
+    print c
+
+    d = sortInteger2([3, 2, 4])
+    print d
