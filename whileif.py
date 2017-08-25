@@ -38,3 +38,14 @@ if __name__ == '__main__':
     b = testif(4)
     print b
 '''
+def A(x = False):
+    a = x
+    b = x
+    if a:
+        if not b:
+            return False
+
+
+X = A(x = True)
+print X
+

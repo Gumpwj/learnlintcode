@@ -42,3 +42,4 @@ fence_idrac -P -a 10.73.131.66 -l root -p calvin -o status
 
 dguo@redhat.com, jiawu@redhat.com, qiyuan@redhat.com, rbarry@redhat.com, sbonazzo@redhat.com, weiwang@redhat.com, huzhao@redhat.com, yaniwang@redhat.com, ycui@redhat.com, yzhao@redhat.com
 
+ewget -c -r -np -k -L -p -e "http_proxy=http://127.0.0.1:8087" http://www.subversion.org.cn/svnbook/1.4/
